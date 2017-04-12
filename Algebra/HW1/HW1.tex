@@ -21,7 +21,9 @@
         Задание 1.
     }
 \end{center}
-\noindent \textbf{Решение. } Очевидно, что $m \circ n \in \mathbb{Q}$. Проверим "плохое" равенство: $m \circ n = 1 \Leftrightarrow mn - m - n + 2 = 1 \Leftrightarrow mn - m - n + 1 = 0 \Leftrightarrow m(n - 1) - (n - 1) = 0 \Leftrightarrow (n - 1)(m - 1) = 0 \Leftrightarrow 
+\textit{Докажите, что формула $m \circ n = mn - m - n + 2$ задает бинарную операцию на множестве $\mathbb{Q}\setminus \{1\}$ и что $(\mathbb{Q}\setminus\{1\}, \circ)$ является группой.} \\
+\noindent \textbf{\underline{Решение.}} Очевидно, что $m \circ n \in \mathbb{Q}$. Проверим "плохое" равенство: \\
+$m \circ n = 1 \Leftrightarrow mn - m - n + 2 = 1 \Leftrightarrow mn - m - n + 1 = 0 \Leftrightarrow m(n - 1) - (n - 1) = 0 \Leftrightarrow (n - 1)(m - 1) = 0 \Leftrightarrow 
 \left[\begin{array}{l}
 	 n = 1 \\
 	 m = 1
@@ -35,17 +37,67 @@
 	Ассоциативность выполнена.
 	\item Проверим наличие нейтрального элемента. Обозначим его за $e$, тогда выполняется $\forall a \in \mathbb{Q}\setminus{\{1\}}$: $a \circ e = a \Leftrightarrow ae - a - e + 2 = a \Leftrightarrow  \\ ae - 2a - e + 2 = 0 \Leftrightarrow e(a - 1) = 2(a - 1) \Rightarrow 
 	\begin{cases}
-	e = \frac12\\
+	e = 2\\
 	a \neq 1
 	\end{cases} \Rightarrow e = \frac12$
 	\item Проверим наличие обратного элемента. Обозначим его $a^{-1}$, тогда выполняется $\forall a \in \mathbb{Q}\setminus\{1\}: a \circ a^{-1} = e \Leftrightarrow aa^{-1} - a - a^{-1} + 2 = e \Leftrightarrow \\ a^{-1}(a - 1) = e + a - 2 \Leftrightarrow
 	\begin{cases}
-	a^{-1} = \frac{e + a - 2}{a - 2}\\
+	a^{-1} = \frac{e + a - 2}{a - 1}\\
 	a \neq 1
-	\end{cases} \Rightarrow a^{-1} = \frac{2a - 3}{2(a - 2)}$
+	\end{cases} \Rightarrow a^{-1} = \frac{a}{a - 1}$
 \end{enumerate}
 Таким образом, получили, что $(\mathbb{Q} \setminus{\{1\}}, \circ)$ действительно группа.
 
+\begin{center}
+	\fbox{
+		Задание 2.
+	}
+\end{center}
+\textit{Найдите порядки всех элементов группы $(\mathbb{Z}_{12}, +)$.}\\
+\noindent \textbf{\underline{Решение.}} Составим $ik_i \equiv 0\;(mod\;12) \forall i \in \mathbb{Z}_{12}$, где $k_i$ -- порядок $i$-ого элемента.Заметим, что $ik_i = $НОК($i, 12$). Таким образом, $k_0 = 1, k_1 = 12, k_2 = 6, k_3 = 4, k_4 = 3, k_5 = 12, k_6 = 2, k_7 = 12, k_8 = 3, k_9 = 4, k_{10} = 6, k_{11} = 12$.
+
+\begin{center}
+	\fbox{
+		Задание 3.
+	}
+\end{center}
+\textit{Опишите все подгруппы в группе $(\mathbb{Z}_{12}, +)$.}\\
+\noindent \textbf{\underline{Решение.}} Пусть $H_i$ -- i-я подгруппа в группе $(\mathbb{Z}_{12}, +)$, а $M_i$ -- множество, на которой задана $H_i$. Заметим, что все подгруппы имеют порядок, делящий 12. Таким образом, $|H_i| \in \{1, 2, 3, 4, 6, 12\}$. 
+\begin{enumerate}
+	\item $M_1 = \{0\}$. 
+	\item $M_6 = \{0, 6\}$.
+	\item $M_5 = \{0, 4, 8\}$.
+	\item $M_4 = \{0, 3, 6, 9\}$.
+	\item $M_3 = \{0, 2, 4, 6, 8, 10\}$.
+	\item $M_2 = \{0, 1, 2, ..., 10, 11\}$.
+\end{enumerate}
+Почему нет других?\\
+\textbf{Предложение.} \textit{Существует единственная подгруппа порядка $k$ группы $(\mathbb{Z}_{12}, +)$.}\\
+\textbf{Доказательство.} Известно, что любая подгруппа циклической группы является циклической. Пусть существует другая группа порядка $k$. Тогда выберем 2 элемента $a$ и $b$, пораждающих данные группы. $a^k = b^k = e$. Для данной бинарной операции абстрактное возведение в степень эквивалентно умножению на эту степень: $$a^k = \underbrace{a +...+a}_{k\text{ раз}} = ak$$
+Следовательно, составим $ak \equiv bk \equiv 0 (mod\;12)$. Но $12\;\vdots\;k$, следовательно, \\ 
+$a \equiv b \equiv 0(mod\;\frac{12}{k}) \Leftrightarrow \begin{cases}
+	a = a'\frac{12}{k}\\
+	b = b'\frac{12}{k}
+\end{cases}$, где $a', b' \in \mathbb{Z}$. Пусть $x = \text{НОД}(a', b')$, тогда $\begin{cases}
+	a = a''x \frac{12}{k}\\
+	b = b''x\frac{12}{k}
+\end{cases}$. Теперь рассмотрим подгруппу, порожденную элементом $x\frac{12}{k}$, а именно $\langle x\frac{12}{k} \rangle$. Заметим, что $x\frac{12}{k} \cdot k \equiv 0(mod\;12)$, что означает в абстрактном возведении в степень: $(x\frac{12}{k})^k = e$. Следовательно, $|\langle x\frac{12}{k} \rangle| =|\langle a \rangle| = |\langle b \rangle| = k$. Но $\{a, b\} \subseteq \langle x\frac{12}{k} \rangle$, т.к. 
+$
+\begin{cases}
+	(x\frac{12}{k})^{a''} = a \\
+	(x\frac{12}{k})^{b''} = b
+\end{cases}
+$. Таким образом, получили, что если $a$ и $b$ различны, а группы, порожденные ими, имеют одинаковый порядок, то эти группы совпадают.\\
+В задании мы нашли группы всех возможных порядков, поэтому других нет.
+
+
+\begin{center}
+	\fbox{
+		Задание 4.
+	}
+\end{center}
+\textit{Докажите, что всякая бесконечная группа содержит бесконечное число подгрупп.}\\
+\textbf{\underline{Доказательство.}} Если группа имеет только конечные подгруппы, то очевидно, что их бесконечно, иначе группа была бы конечной. Рассмотрим случай, когда существует хотя бы одна бесконечная подгруппа. Пусть эту подгруппу пораждает элемент $g$. Тогда элементы $g^i$ тоже будут пораждать некоторые подгруппы, где $i \in \mathbb{N}$. Таких групп счетно много, а следовательно, бесконечно.
 \end{spacing}
 
 \end{document}
