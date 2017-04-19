@@ -5,31 +5,87 @@
 \usepackage{amsmath, amssymb}
 \usepackage{setspace}
 
- \title{
-     Домашнее задание по алгебре №1\\
- }
- \author{Михайлов Никита Маратович, ПМИ-167.\\
+\title{
+ Домашнее задание по алгебре №2\\
+}
+\author{
+	Михайлов Никита Маратович, ПМИ-167.\\
 }
 \date{}
 
 \begin{document}
 \maketitle
 \begin{spacing}{1}
-
-\begin{center}
-    \fbox{
-        Задание 1.
-    }
-\end{center}
-\textit{Найдите все левые смежные классы и все правые смежные классы группы $A_4$ по подгруппе $H = \langle \sigma \rangle$, где $\sigma = 
-\left(
-\begin{array}{cccc}
-     1 & 2 & 3 & 4  \\
-     2 & 1 & 4 & 3 
-\end{array}
-\right)$. Является ли подгруппа $H$ нормальной в группе $A_4$?} \\
-\noindent \underline{\textbf{Решение.}} 
-
+	\begin{center}
+		\fbox{
+			Задание 1.
+		}
+	\end{center}
+	\textit{Найдите все левые смежные классы и все правые смежные классы группы
+		$A_4$ по подгруппе $H = \langle \sigma \rangle$, где $\sigma =
+		\left(
+		\begin{array}{cccc}
+			1 & 2 & 3 & 4 \\
+			2& 1 & 4 & 3 
+		\end{array}
+		\right)$. Является ли подгруппа $H$ нормальной в группе $A_4$?} \\
+	\noindent \underline{\textbf{Решение.}} $\sigma = \tau_{12}\cdot\tau_{34} \in A_4$. Заметим, что $\langle \sigma \rangle = \{id, \sigma\}$, т.к. 
+	$\begin{cases}
+		\sigma^{2k} = id \\
+		\sigma^{2k+1} = \sigma
+	\end{cases}$. 
+	Для элемента $id$ левый смежный класс группы $A_4$ по $id$ совпадает с правым и совпадает с $A_4$. Осталось рассмотреть левый и правый смежные классы группы $A_4$ по $\sigma$. Для начала найдем все элементы группы $A_4$(их $\frac{4!}{2} = 12$):
+	\begin{gather*}
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	1 & 2 & 3 & 4
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	2 & 1 & 4 & 3
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	3 & 4 & 1 & 2
+	\end{pmatrix}
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	4 & 3 & 2 & 1
+	\end{pmatrix}, \\
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	4 & 2 & 1 & 3
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	3 & 1 & 2 & 4
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	2 & 3 & 1 & 4
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	4 & 1 & 3 & 2
+	\end{pmatrix}, \\
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	1 & 3 & 4 & 2
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	2 & 4 & 3 & 1
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	3 & 2 & 4 & 1
+	\end{pmatrix},
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	1 & 4 & 2 & 3
+	\end{pmatrix},	
+	\end{gather*}
+	
 \end{spacing}
 
 \end{document}
