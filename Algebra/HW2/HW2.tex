@@ -34,58 +34,377 @@
 		\sigma^{2k} = id \\
 		\sigma^{2k+1} = \sigma
 	\end{cases}$. 
-	Для элемента $id$ левый смежный класс группы $A_4$ по $id$ совпадает с правым и совпадает с $A_4$. Осталось рассмотреть левый и правый смежные классы группы $A_4$ по $\sigma$. Для начала найдем все элементы группы $A_4$(их $\frac{4!}{2} = 12$):
+	Для начала найдем все элементы группы $A_4$(их $\frac{4!}{2} = 12$):
 	\begin{gather*}
-	\begin{pmatrix}
+	a_1 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	1 & 2 & 3 & 4
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_2 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	2 & 1 & 4 & 3
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_3 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	3 & 4 & 1 & 2
 	\end{pmatrix}
-	\begin{pmatrix}
+	a_4 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	4 & 3 & 2 & 1
 	\end{pmatrix}, \\
-	\begin{pmatrix}
+	a_5 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	4 & 2 & 1 & 3
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_6 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	3 & 1 & 2 & 4
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_7 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	2 & 3 & 1 & 4
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_8 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	4 & 1 & 3 & 2
 	\end{pmatrix}, \\
-	\begin{pmatrix}
+	a_9 = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	1 & 3 & 4 & 2
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_{10} = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	2 & 4 & 3 & 1
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_{11} = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	3 & 2 & 4 & 1
 	\end{pmatrix},
-	\begin{pmatrix}
+	a_{12} = \begin{pmatrix}
 	1 & 2 & 3 & 4 \\
 	1 & 4 & 2 & 3
 	\end{pmatrix},	
 	\end{gather*}
+	$|H| = 2 \Rightarrow |L_i| = |R_i| = 2$ для всех $i = \{1, ..., 12\}$, где $L_i$ -- левый, а $R_i$ -- правый смежные классы i-ого элемента $A_4$.
+	\begin{enumerate}
+		\item $L_1 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 2 & 3 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 1 & 4 & 3
+		\end{pmatrix}
+		\right\};
+		R_1 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 2 & 3 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 1 & 4 & 3
+		\end{pmatrix}
+		\right\}$
+		
+		\item $L_2 = \left\{ 
+		\begin{pmatrix}
+			1 & 2 & 3 & 4 \\
+			1 & 2 & 3 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+			1 & 2 & 3 & 4 \\
+			2 & 1 & 4 & 3
+		\end{pmatrix}
+		\right\};
+		R_2 = \left\{ 
+		\begin{pmatrix}
+			1 & 2 & 3 & 4 \\
+			1 & 2 & 3 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+			1 & 2 & 3 & 4 \\
+			2 & 1 & 4 & 3
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_3 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 4 & 1 & 2
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 3 & 2 & 1
+		\end{pmatrix}
+		\right\};
+		R_3 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 4 & 1 & 2
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 3 & 2 & 1
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_4 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 3 & 2 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 4 & 1 & 2
+		\end{pmatrix}
+		\right\};
+		R_4 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 3 & 2 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 4 & 1 & 2
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_5 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 2 & 1 & 3
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 4 & 3 & 1
+		\end{pmatrix}
+		\right\};
+		R_5 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 2 & 1 & 3
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 1 & 2 & 4
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_6 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 1 & 2 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 3 & 4 & 2
+		\end{pmatrix}
+		\right\};
+		R_6 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 1 & 2 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 2 & 1 & 3
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_7 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 3 & 1 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 2 & 4 & 1
+		\end{pmatrix}
+		\right\};
+		R_7 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 3 & 1 & 4
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 4 & 2 & 3
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_8 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 1 & 3 & 2
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 4 & 2 & 3
+		\end{pmatrix}
+		\right\};
+		R_8 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 1 & 3 & 2
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 2 & 3 & 4
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_9 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 3 & 4 & 2
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 1 & 2 & 4
+		\end{pmatrix}
+		\right\};
+		R_9 = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 3 & 4 & 2
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 4 & 3 & 1
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_{10} = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 4 & 3 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 2 & 1 & 3
+		\end{pmatrix}
+		\right\};
+		R_{10} = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 4 & 3 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 3 & 4 & 2
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_{11} = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 2 & 4 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 3 & 1 & 4
+		\end{pmatrix}
+		\right\};
+		R_{11} = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		3 & 2 & 4 & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 1 & 3 & 2
+		\end{pmatrix}
+		\right\};$
+		
+		\item $L_{12} = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 4 & 2 & 3
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		4 & 1 & 3 & 2
+		\end{pmatrix}
+		\right\};
+		R_{12} = \left\{ 
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		1 & 4 & 2 & 3
+		\end{pmatrix},
+		\begin{pmatrix}
+		1 & 2 & 3 & 4 \\
+		2 & 3 & 1 & 4
+		\end{pmatrix}
+		\right\};$
+	\end{enumerate}
+	Заметим, что существуют такие $a_i$ для которых $a_iH \neq Ha_i \Rightarrow$ подгруппа $H$ -- ненормальна.
 	
+	
+\begin{center}
+	\fbox{
+		Задание 2.
+	}
+\end{center}
+	\textit{Пусть $SL_2$ -- группа всех целочисленных $(2\times 2)$-матриц с определителем 1. Докажите, что множество
+		$$
+		\left\{\begin{pmatrix}
+		a & b\\
+		c & d
+		\end{pmatrix} \in SL_2(\mathbb{Z})\;|\;a \equiv d \equiv 1\; (mod\; 3);\;	b \equiv c \equiv 0\;(mod\;3)\right\}
+		$$}
+	является нормальной группой в $SL_2(\mathbb{Z})$.\\
+	\noindent \textbf{\underline{Решение.}} Обозначим нашу группу за $G$. Рассмотрим произвольную матрицу из $G :g =  \begin{pmatrix}
+	x_1 & x_2\\
+	x_3 & x_4
+	\end{pmatrix}$. Так как $G$ -- группа, то там лежит и обратная матрица: $g^{-1} = \begin{pmatrix}
+	x_4 & -x_2\\
+	-x_3 & x_1
+	\end{pmatrix}$. По определению нашей группы определители обоих матриц равны 1: $x_1x_4 - x_2x_3 = 1$. Покажем, что $gHg^{-1} \subseteq H$, где $H$ -- подгруппа из условия. Рассмотрим произвольный элемент из $H$: $h = \begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix} $
+	Таким образом:
+	$$
+	ghg^{-1} = \begin{pmatrix}
+	x_1 & x_2\\
+	x_3 & x_4
+	\end{pmatrix} \cdot 
+	\begin{pmatrix}
+	a & b \\
+	c & d
+	\end{pmatrix} \cdot
+	\begin{pmatrix}
+	x_4 & -x_2\\
+	-x_3 & x_1
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	x_1a+x_2c & x_1b+x_2d\\
+	x_3a + x_4c & x_3b + x_4d
+	\end{pmatrix}	\cdot
+	\begin{pmatrix}
+	x_4 & -x_2\\
+	-x_3 & x_1
+	\end{pmatrix}
+	$$
+	Используя определения нашей группы и ее подгруппы:
+	\begin{enumerate}
+		\item $(x_1a+x_2c)x_4 - (x_1b+x_2d)x_3 = x_1x_4a + x_2x_4c - x_1x_3b-x_2x_3d \equiv x_1x_4a-x_2x_3d \equiv (1 + x_2x_3)a - x_2x_3d \equiv a + x_2x_3(a - d) \equiv a \equiv 1\;(mod\;3)$
+		\item $-(x_1a+x_2c)x_2 + (x_1b+x_2d)x_1 = -x_1x_2a - x_2x_2c + x_1x_1b+x_2x_1d \equiv x_1^2b - x_2^2c \equiv 0\;(mod\;3)$
+		\item Нижняя строка получившейся матрицы тоже удовлетворяет свойствам выше. Проверяется аналогично двум случаям выше заменой соответствующих индексов.
+	\end{enumerate}
+	Получили, что подгруппа $H$ нормальна по одной из формулировок нормальности(их несколько).
+	
+	
+	\begin{center}
+		\fbox{
+			Задание 3.
+		}
+	\end{center}
+	\textit{Найдите все гомоморфизмы из группы $\mathbb{Z}_{12}$ в группу $\mathbb{Z}_{16}$.}
+	
+	\textbf{\underline{Решение.}} Заметим, что если мы будем знать $\varphi(1)$, то мы сможем вычислить $\varphi(x) = x\varphi(1)$. Довольно очевидно, что 0 перейдет в 0. Но в $\mathbb{Z}_{12}\;12 = 0 \Rightarrow \varphi(0) = \varphi(12) = 12\varphi(1) = 0\;(mod\;16)$. Различных $\varphi(1)$ по модулю 16 немного, а именно: $\{0; 4; 8; 12\}$. В силу первого предложения можно сказать, что мы нашли все гомоморфизмы.
 \end{spacing}
 
 \end{document}
