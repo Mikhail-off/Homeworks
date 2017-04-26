@@ -243,10 +243,46 @@ $$
 
 \noindent Дан куб $ABCDA'B'C'D'$ со стороной 4. Точка F -- середина ребра $BB'$, а точка $E$ лежит на ребре $BB'$, причем $BE:EB'=6:3$. Найдите угол и расстояние между прямыми $AE$ и $D'F$.
 
-\noindent \textbf{Решение.}
-
-
-
+\begin{minipage}[c]{50mm}
+	\includegraphics[width=100mm]{picture.pdf}
+\end{minipage} \hfill
+\begin{minipage}[b]{60mm}
+	Дано: \\
+	$AB...C'D'$ -- куб со стороной 4;\\
+	$B'F=FB$;\\
+	$BE:EB'=2:1$;
+	\medskip\hrule\medskip
+	Найти:
+	$\angle(AE,D'F)$;\\
+	$\rho(AE, D'F)$.
+\end{minipage}\\
+\noindent \textbf{Решение.} Обозначим $\angle(AE,D'F) = \varphi$. Введем координатную ось с т.$A$ в начале координат, тогда $A(0, 0, 0), A'(0, 0, 4), B(0,4,0),\\
+B'(0, 4, 4), D(4,0,0), D'(4,0,4), F(0, 4, 2), E(0, 4, \frac{8}{3})$. Отложим вектора: $\overrightarrow{AE}, \overrightarrow{EF}, \overrightarrow{FD'}, \overrightarrow{PQ}$, где $PQ$ -- общий перпендикуляр к прямым $AE$ и $FD'$(а его длина и есть искомое расстояние). Для начала найдем угол.  Для этого найдем координаты соответствующих векторов: $\overrightarrow{AE}(0, 4, \frac{8}{3}), \overrightarrow{FD'}(4, -4, 2)$. Теперь по определению косинуса:
+$$
+cos\varphi = |cos(\angle(\overrightarrow{AE}, \overrightarrow{FD'})| = \frac{|(\overrightarrow{AE},\overrightarrow{FD'})|}{|\overrightarrow{AE}|\cdot |\overrightarrow{FD'}|} = \frac{\frac{32}{3}}{\frac{4\sqrt{13}}{3}\cdot 6} = \frac{4}{3\sqrt{13}}.
+$$
+Теперь найдем длину. Заметим, что $\overrightarrow{PQ} = x\cdot \overrightarrow{AE} + \overrightarrow{EF} + y \cdot \overrightarrow{FD'}$, где $x, y$ -- неизвестные скаляры. Но мы знаем про $\overrightarrow{PQ}$, что он ортогонален и $\overrightarrow{AE}$, и $\overrightarrow{FD'}$. Следовательно, составим:
+$$
+\begin{cases}
+	(\overrightarrow{PQ}, \overrightarrow{AE}) = 0\\
+	(\overrightarrow{PQ}, \overrightarrow{FD'}) = 0
+\end{cases} \Leftrightarrow
+\begin{cases}
+	x \cdot |\overrightarrow{AE}|^2 + (\overrightarrow{EF}, \overrightarrow{AE}) + y\cdot (\overrightarrow{AE}, \overrightarrow{FD'}) = 0 \\
+	y \cdot |\overrightarrow{FD'}|^2 + (\overrightarrow{EF}, \overrightarrow{FD}) + x\cdot (\overrightarrow{AE}, \overrightarrow{FD'}) = 0 
+\end{cases}
+$$
+Заметим, что $\overrightarrow{EF}(0, 0, -\frac{2}{3})$. Подставим в нашу систему и найдем $x, y$:
+$$
+\begin{cases}
+	\frac{208}{9}x - \frac{16}{9} - \frac{32}{3}y = 0\\
+	6y - \frac{4}{3}-\frac{32}{3}x = 0 
+\end{cases} \Rightarrow
+\begin{cases}
+	x = 1\\y = 2
+\end{cases}
+$$
+Таким образом, $\overrightarrow{PQ} = \overrightarrow{AE} + \overrightarrow{EF} + 2\overrightarrow{FD'}$ и $\overrightarrow{PQ}(8, -4, 4)$. Следовательно, $\rho(AE, D'F) = |\overrightarrow{PQ}| = 4\sqrt{6}$
 
 
 
