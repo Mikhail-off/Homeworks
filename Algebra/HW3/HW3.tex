@@ -1,1 +1,157 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
 
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+
+
+
+
+\title{
+     Домашнее задание по алгебре №3.
+ }
+ \author{Михайлов Никита Маратович, ПМИ-167.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+
+
+\begin{center}
+	\fbox{Задание 1.}
+\end{center}
+
+\noindent Сколько элементов	порядков 2, 3, 4 и 6 в группе $\mathbb{Z}_3 \times \mathbb{Z}_4\times \mathbb{Z}_6$?\\
+
+\noindent \textbf{Решение. } Заметим, что элемент группы $\mathbb{Z}_3 \times \mathbb{Z}_4\times \mathbb{Z}_6$ имеет порядок $n$ тогда и только тогда, когда $\text{НОК}(ord(a), ord(b), ord(c)) = n$, где $a\in\mathbb{Z}_3,b\in\mathbb{Z}_4,c\in\mathbb{Z}_6.$
+\begin{enumerate}
+	\item[Порядка 2.] Перечислим все элементы групп, которые в степени 2 дают 0:
+	$$
+	\begin{array}{c|c|c}
+		\mathbb{Z}_3 & \mathbb{Z}_4 & \mathbb{Z}_6\\
+		\hline 
+		0 & 0, 2 & 0, 3\\
+	\end{array}
+	$$
+	Теперь на первое место можем поставить 1 элемент, на второе 2, на третье 2. И вычтем 1, так как элемент (0, 0, 0) -- единственный(пока) случай, когда НОК < 2.\\
+	Итого: $1\cdot2\cdot2 - 1 = 3$
+	
+	\item[Порядка 3.] Аналогично перечислим:
+	$$
+	\begin{array}{c|c|c}
+	\mathbb{Z}_3 & \mathbb{Z}_4 & \mathbb{Z}_6\\
+	\hline 
+	0,1,2 & 0 & 0, 2, 4\\
+	\end{array}
+	$$
+	Итого: $3\cdot 1\cdot3 - 1 = 8$
+	\item[Порядка 4.] Снова перечислим:
+	$$
+	\begin{array}{c|c|c}
+	\mathbb{Z}_3 & \mathbb{Z}_4 & \mathbb{Z}_6\\
+	\hline 
+	0 & 0,1,2,3 & 0, 3\\
+	\end{array}
+	$$
+	Итого: $1\cdot4\cdot2 - 1 = 7$. Но еще нужно вычесть все элементы порядка, делящих 4, а именно порядка 2, ведь такие элементы в степени 4 тоже дают 0. Получили: $7 - 3 = 4$.
+	
+	\item[Порядка 6.] Перечислим:
+	$$
+	\begin{array}{c|c|c}
+	\mathbb{Z}_3 & \mathbb{Z}_4 & \mathbb{Z}_6\\
+	\hline 
+	0,1,2 & 0,2 & 0,1,2,3,4,5\\
+	\end{array}
+	$$
+	Итого: $3\cdot2\cdot6 - 1 - 8 -3 = 24$.
+\end{enumerate}
+
+
+\begin{center}
+	\fbox{Задание 2.}
+\end{center}
+
+\noindent Сколько подгрупп порядков 3 и 15 в нециклической абелевой группе порядка 45?\\
+
+\noindent \textbf{Решение.} \textit{Основополагающая теорема о структуре конечной абелевой группы утверждает, что любая конечная абелева группа может быть разложена в прямую сумму своих циклических подгрупп, порядки которых являются степенями простых чисел.}\\
+\noindent Следовательно, $G$ изоморфна одной из $\mathbb{Z}_{45},\mathbb{Z}_3 \times \mathbb{Z}_3 \times \mathbb{Z}_5, \mathbb{Z}_9 \times \mathbb{Z}_5, \mathbb{Z}_3 \times \mathbb{Z}_{15}$.\\
+Заметим, что 1) $\mathbb{Z}_{45}\simeq\mathbb{Z}_9 \times\mathbb{Z}_5$;
+2) $\mathbb{Z}_3 \times \mathbb{Z}_3 \times \mathbb{Z}_5 \simeq \mathbb{Z}_3 \times \mathbb{Z}_{15}$, причем $\mathbb{Z}_3 \times \mathbb{Z}_{15}$ -- ациклическая, так как $\text{НОД}(3, 15) \neq 1$\\
+Таким образом $G \simeq \mathbb{Z}_3 \times \mathbb{Z}_3 \times \mathbb{Z}_5$.
+\begin{enumerate}
+	\item[Порядка 3.] Аналогично №1 найдем кол-во элементов порядка 3. $3\times3\times1 - 1 = 8$. Но так же отметим, что подгруппа порядка 3 порождается любым своим неединичным элементом, так как 3 -- простое(следствие т. Лагранжа). Тогда получается, что мы посчитали все подгруппы дважды. Итого: $\frac{8}{2} = 4$.
+	
+	\item[Порядка 15.] Любая абелева группа порядка 15 изоморфна либо $\mathbb{Z}_{15}$, либо $\mathbb{Z}_3 \times \mathbb{Z}_5$, но они изоморфны. Следовательно, каждая подгруппа в точности изоморфна $\mathbb{Z}_{15}$. А у $\mathbb{Z}_{15}$ ровно $\varphi(15) = 8$ порождающих элементов. Теперь найдем кол-во элементов порядка 15 исходной группы аналогично №1: $3\cdot3\cdot5 - 8 - 4 - 1 = 32$. И разделим на 4, так как мы посчитаем каждую подгруппу четырежды. Итого:$\frac{32}{8} = 4$
+\end{enumerate}
+
+
+\begin{center}
+	\fbox{Задание 3.}
+\end{center}
+
+\noindent Найдите в группе $G = \mathbb{Z}\times \mathbb{Z}$ подгруппу $H$, для которой $G/H\simeq\mathbb{Z}_{10}\times\mathbb{Z}_{12}\times\mathbb{Z}_{15}$.\\
+
+\noindent \textbf{Решение.} Заметим, что $\mathbb{Z}_{10}\times\mathbb{Z}_{12}\times\mathbb{Z}_{15} \simeq \Z_2 \x \Z_5 \x \Z_3 \x \Z_4 \x \Z_3 \x \Z_5 \simeq \Z_{30}\x\Z_{60}$.\\
+Известно, что $\begin{cases}
+	G' = \Z\\
+	H' = n\Z
+\end{cases}\Rightarrow G'/H' \simeq \Z_n$. Пусть $H = H_1 \x H_2$. Тогда возьмем $\begin{cases}
+	H_1 = \Z_{30}\\
+	H_2 = \Z_{60}
+\end{cases}$, причем $H_1$ и $H_2$ нормальны в $\Z$, тогда $H = \Z_{30} \x \Z_{60}$. По т. о факторизации:
+$$
+G/H \simeq \Z / H_1 \x \Z/H_2 \simeq \Z_{30}\x \Z_{60} \simeq \mathbb{Z}_{10}\times\mathbb{Z}_{12}\times\mathbb{Z}_{15}
+$$
+
+
+
+
+\begin{center}
+	\fbox{Задание 4.}
+\end{center}
+
+\noindent Пусть порядок конечной абелевой группы $A$ делится на $m$. Докажите, что в $A$ есть подгруппа порядка $m$.\\
+
+\noindent \textbf{Решение.} Для $m = 1$ все очевидно. Пусть $m \neq 1$.\\
+Применим метод математической индукции. База: если $G$ -- циклическая абелева группа порядка $N$, порожденная элементом $g$, тогда $\forall n: N \vdots n \Rightarrow ord(g^{\frac{N}{n}}) = n$. Пусть верно для всех порядков меньших $N$. Если $G$ -- циклическая, то все хорошо. $G$ -- ациклическая. Следовательно, по структурной теореме она изоморфна прямому произведению некоторых абелевых групп \underline{меньших} порядков:
+$G = G_1\x G_2$, где $\begin{cases}
+	|G_1| = x \\
+	|G_2| = y
+\end{cases}$. Имеем: $\begin{cases}
+    N = xy\\
+    N \vdots m
+\end{cases}$. Из курса дискретной математики $\exists x', y': m = x'y'$, причем $x\vdots x'$ и $y \vdots y'$, тогда существуют такие $H_1\subseteq G_1, H_2\subseteq G_2$, что $|H_1| = x'$ и $|H_2| = y'$, тогда $H_1\x H_2 \subseteq G$, а $|H_1\x H_2| = x'y' = m$. Что и требовалось доказать.
+
+
+\end{spacing}
+
+\end{document}
