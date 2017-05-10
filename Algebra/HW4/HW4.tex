@@ -1,0 +1,201 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+\newcommand{\N}{\mathbb{N}} 
+
+
+
+\title{
+     Домашнее задание по алгебре №3.
+ }
+ \author{Михайлов Никита Маратович, ПМИ-167.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+
+
+\begin{center}
+	\fbox{Задание 1.}
+\end{center}
+
+\noindent \textit{Пусть $G$ -- группа всех диагональных матриц в $GL_3(\R)$ и $X = \R^3$. Опишите все орбиты и все стабилизаторы для действия группы $G$ на множестве $X$, заданного формулой $(g, x)\mapsto g \cdot x$.}\\[5pt]
+\noindent \textbf{Решение.} Пусть $x \in X$, тогда орбита элемента $x$ -- это $\{gx\;|\;g \in G\}$. Рассмотрим произвольный элемент $g \in G$:
+$$
+g = \begin{pmatrix}
+g_1 & 0 & 0\\
+0 & g_2 & 0\\
+0 & 0 & g_3
+\end{pmatrix}, x = \begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix},
+$$
+где $g_1, g_2, g_3 \in \R\setminus\{0\}, x_1, x_2, x_3 \in \R $. Посмотрим их произведение:
+$$
+gx = \begin{pmatrix}
+g_1x_1\\ g_2x_2\\ g_3x_3
+\end{pmatrix}
+$$
+Заметим, что если $x_i = 0$, то на i-й координате вектора $x$ будет стоять 0, независимо от $g_i$. Тогда орбиты легко выписать, перебрав все возможные места для нулей:
+$$
+\begin{pmatrix}
+0\\0\\0
+\end{pmatrix},
+\begin{pmatrix}
+a\\0\\0
+\end{pmatrix},
+\begin{pmatrix}
+0\\b\\0
+\end{pmatrix},
+\begin{pmatrix}
+0\\0\\c
+\end{pmatrix},
+\begin{pmatrix}
+a\\b\\0
+\end{pmatrix},
+\begin{pmatrix}
+0\\b\\c
+\end{pmatrix},
+\begin{pmatrix}
+a\\0\\c
+\end{pmatrix},
+\begin{pmatrix}
+a\\b\\c
+\end{pmatrix},
+$$ где $a,b,c \in \R\setminus\{0\}.$ Теперь опишем стабилизаторы. Пусть $g$ -- стабилизатор точки $x$, тогда:
+$$gx=x\Leftrightarrow \begin{pmatrix}
+g_1x_1\\g_2x_2\\g_3x_3
+\end{pmatrix} = \begin{pmatrix}
+x_1\\x_2\\x_3
+\end{pmatrix}$$
+Рассмотрим уравнение:$g_ix_i=x_i \Rightarrow \begin{cases}
+g_i = 1\text{, если } x_i \neq 0\\
+g_i \in \R\setminus\{0\}\text{, если }x_i = 0
+\end{cases}$ Множество из $g$, составленных из удовлетворяющих уравнению $g_i$ будет стабилизатором точки $x$.
+\newpage
+\begin{center}
+	\fbox{Задание 2.}
+\end{center}
+
+\noindent \textit{Пусть $G$ -- группа всех верхнетреугольных матриц в $SL_2(\R)$. Опишите все классы сопряженности в группе $G$.}
+
+\noindent \textbf{Решение.}
+
+
+
+
+
+
+
+
+
+\newpage
+\begin{center}
+	\fbox{Задание 3.}
+\end{center}
+
+\noindent \textit{Для действия группы $S_4$ на себе сопряжениями найдите стабилизатор подстановки $(1\;2\;3\;4)$.}
+
+\noindent \textbf{Решение.} Пусть $(1\;2\;3\;4) = \sigma = \begin{pmatrix}
+1 & 2 & 3 & 4 \\
+2 & 3 & 4 & 1
+\end{pmatrix}$. Стабилизаторы элемента $\sigma$ -- те элементы $S_4$, к-рые не изменяют $\sigma$ при сопряжении:$\{\delta \in S_4\;|\;\delta \sigma \delta^{-1} = \sigma\}$. Заметим, что $\delta \sigma = \sigma \delta$, а следовательно, $\delta(\sigma(i)) = \sigma(\delta(i))$. Переберем все $i$:
+\begin{enumerate}
+	\item[$i = 4$:] $\delta(1) = \sigma(\delta(4))$
+	\item[$i = 1$:] $\delta(2) = \sigma(\delta(1))$
+	\item[$i = 2$:] $\delta(3) = \sigma(\delta(2))$
+	\item[$i = 3$:] $\delta(4) = \sigma(\delta(3))$
+\end{enumerate}
+Теперь переберем все возможные образы для $\delta(4)$:
+\begin{enumerate}
+	\item $\delta(4) = 1\Rightarrow\begin{cases}
+	\delta(1) = \sigma(1) = 2\\
+	\delta(2) = \sigma(2) = 3\\
+	\delta(3) = \sigma(3) = 4\\
+	\delta(4) = \sigma(4) = 1\\
+	\end{cases} \Rightarrow \delta = \begin{pmatrix}
+	1 & 2 & 3 & 4\\
+	2 & 3 & 4 & 1
+	\end{pmatrix}$
+	\item $\delta(4) = 2\Rightarrow\begin{cases}
+	\delta(1) = \sigma(2) = 3\\
+	\delta(2) = \sigma(3) = 4\\
+	\delta(3) = \sigma(4) = 1\\
+	\delta(4) = \sigma(1) = 2\\
+	\end{cases} \Rightarrow \delta = \begin{pmatrix}
+		1 & 2 & 3 & 4\\
+		3 & 4 & 1 & 2
+	\end{pmatrix}$
+	\item $\delta(4) = 3\Rightarrow\begin{cases}
+	\delta(1) = \sigma(3) = 4\\
+	\delta(2) = \sigma(4) = 1\\
+	\delta(3) = \sigma(1) = 2\\
+	\delta(4) = \sigma(2) = 3\\
+	\end{cases} \Rightarrow \delta = \begin{pmatrix}
+	1 & 2 & 3 & 4\\
+	4 & 1 & 2 & 3
+	\end{pmatrix}$
+	\item $\delta(4) = 4\Rightarrow\begin{cases}
+	\delta(1) = \sigma(4) = 1\\
+	\delta(2) = \sigma(1) = 2\\
+	\delta(3) = \sigma(2) = 3\\
+	\delta(4) = \sigma(3) = 4\\
+	\end{cases}\Rightarrow \delta = \begin{pmatrix}
+	1 & 2 & 3 & 4\\
+	1 & 2 & 3 & 4
+	\end{pmatrix}$
+\end{enumerate}
+
+Все возможные стабилизаторы найдены.
+
+
+
+
+
+
+\newpage
+\begin{center}
+	\fbox{Задание 4.}
+\end{center}
+
+\noindent \textit{Пусть $k,l \in \N $ и $n = kl$. Реализуем группу $\Z_k\x\Z_l$ как подгруппу в $SL_n$, использую доказательство теоремы Кэли. Найдите необходимое и достаточное условие на числа $k, l$, при котором эта подгруппа содержится в $A_n$.}
+
+\noindent \textbf{Решение.} 
+
+
+
+
+\end{spacing}
+\end{document}
