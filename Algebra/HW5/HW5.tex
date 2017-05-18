@@ -1,1 +1,194 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
 
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+\newcommand{\N}{\mathbb{N}} 
+
+
+
+\title{
+     Домашнее задание по алгебре №5.
+ }
+ \author{Михайлов Никита Маратович, ПМИ-167.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+
+
+\begin{center}
+	\fbox{Задание 1.}
+\end{center}
+
+\noindent \textit{Найдите все обратимые элементы, все делители нуля и все нильпотентные элементы в кольце $R = \{\begin{pmatrix}
+	a & 0\\
+	b & c
+	\end{pmatrix} | a,b,c \in \R\}$ с обычными операциями сложения и умножения.}\\
+\noindent \textbf{Решение.} Пусть $r = \begin{pmatrix} a & 0\\b & c \end{pmatrix} \in R$. 
+
+\begin{enumerate}
+\item
+Найдем все обратимые элементы. Заметим, что матрица обратима тогда и только тогда, когда она невырождена. Так же стоит отметить, что $\forall r \in R$ матрица $r$ нижнетреугольная, следовательно, $det(r) = ac$. Составим $det(r)\neq 0 \Leftrightarrow ac \neq 0 \Leftrightarrow \left[\begin{array}{l}
+a = 0\\c = 0
+\end{array}\right.$ Покажем, что обратная матрица будет лежать в кольце. Для этого достаточно посчитать алгебраическое дополнение элемента $r_{2,1}:A_{2,1} = 0$, откуда следует, что в обнатной матрице в первой строке, втором столбце будет стоять 0, а следовательно лежать в кольце.
+
+\item
+Что такое нуль? Очевидно, что элемент $\begin{pmatrix}
+0 & 0\\ 0 & 0
+\end{pmatrix} = 0$, так как $0+r=r+0=r$
+Найдем все делители нуля. Для этого $x = \begin{pmatrix}
+x_1 & 0\\x_2 &x_3
+\end{pmatrix} \in R$ и $r \neq 0$. Заметим, что делители нуля -- необратимы, поэтому $ac = 0$.
+\begin{enumerate}
+	\item
+	Левые делители нуля. Составим $rx = 0 \Leftrightarrow \begin{pmatrix}
+	a & 0\\b & c
+	\end{pmatrix} \cdot \begin{pmatrix}
+	x_1 & 0\\x_2 &x_3
+	\end{pmatrix} = 0$, откуда получим:
+	$$
+	\begin{cases}
+	ax_1 = 0\\
+	bx_1 + cx_2 = 0\\
+	cx_3 = 0
+	\end{cases} \Rightarrow 
+	\left[\begin{array}{l}
+	\begin{cases}
+		a = 0\\
+		b \in \R\\
+		c \neq 0\\
+		x_1  = 1\\
+		x_2 = -\dfrac{b}{c}\\
+		x_3 = 0
+	\end{cases}\\[15pt]
+	\begin{cases}
+	a \in \R\\
+	b \in \R\\
+	c = 0\\
+	x_1 = 0\\
+	x_2 = 1\\
+	x_3 = 1\\
+	\end{cases}
+	\end{array}	\right.
+	$$
+	Рассмотрены все случаи для $a,b,c$. Таким образом, делители нуля имеют вид:\\
+	$\begin{pmatrix}
+	0&0\\b & c
+	\end{pmatrix}$ или $\begin{pmatrix}
+	a & 0 \\b & 0
+	\end{pmatrix}$, где $a,b \in \R, c \in \R\setminus\{0\}$.
+	\item
+	Правые делители нуля. Составим $xr = 0 \Leftrightarrow \begin{pmatrix}
+	x_1 & 0\\x_2 &x_3
+	\end{pmatrix}\cdot\begin{pmatrix}
+	a & 0\\b & c
+	\end{pmatrix} = 0$, откуда получим:
+	$$
+	\begin{cases}
+	ax_1 = 0\\
+	ax_2 + bx_3 = 0\\
+	cx_3 = 0
+	\end{cases} \Rightarrow 
+	\left[\begin{array}{l}
+	\begin{cases}
+	a = 0\\
+	b \in \R\\
+	c \in \R\\
+	x_1 = 1\\
+	x_2 = 0\\
+	x_3 = 0
+	\end{cases}\\[15pt]
+	\begin{cases}
+	a \neq 0\\
+	b \in \R\\
+	c = 0\\
+	x_1 = 0\\
+	x_2 = -\dfrac{b}{a}\\
+	x_3 = 1
+	\end{cases}
+	\end{array}	\right.
+	$$
+	Рассмотрены все случаи для $a,b,c$. Таким образом, делители нуля имеют вид:\\
+	$\begin{pmatrix}
+	0 & 0 \\b & c
+	\end{pmatrix}$ или
+	$\begin{pmatrix}
+	a&0\\b & 0
+	\end{pmatrix}$, где $b,c \in \R, a \in \R\setminus\{0\}$.
+\end{enumerate}
+\item Найдей нильпотентные элементы. Пусть $r$ -- нильпотент, тогда $\exists n : r^n=0\Rightarrow a^n=c^n=0\Leftrightarrow a = c = 0$. Получается все нильпотенты лежат в множестве матриц вида: $X = \begin{pmatrix}
+0&0\\x & 0
+\end{pmatrix}$, где $x\in \R\{0\}$. Проверим все ли такие матрицы -- нильпотенты: $X^2 = 0$. Да, все. Следовательно, все нильпотенты имеют такой вид.
+\end{enumerate}
+
+
+
+\newpage
+\begin{center}
+	\fbox{Задание 2.}
+\end{center}
+
+\noindent \textit{Приведите пример идеала в кольце $\Z[x]$, не являющегося главным.}\\
+\noindent \textbf{Решение.} Возьмем идеал $I$, состоящий из многочленов, у которых все свободные члены четные. Это идеал, так как 1) $I$ -- образует подгруппу(обратные тоже с четным свободным членом и сумма четных четна, 0 -- четный); 2) пусть $r\in R, a \in I$, тогда $ar=ra\in I$, так как произведение любого на четное -- четно. Пусть $I$ -- главный идеал, тогда $\exists a : I = (a)$. Следовательно, $\exists r : 2 = ar$. Заметим, что $a \neq \pm 1$, так как тогда $I = R$. Но тогда $a = \pm 2$. Следовательно, можно "породить" многочлен равный $x \in I$. Составим $\exists m : x = 2 \cdot m$, но такого $m$ не существует. Получили противоречие. $I$ -- идеал, не являющийся главным.
+
+
+\begin{center}
+	\fbox{Задание 3.}
+\end{center}
+
+\noindent \textit{Найдите размерность $\R$-алгебры $\R[x]/\{x^3-x^2+2\}$}\\
+\noindent \textbf{Решение.} Заметим, что $\R[x]/(x^3-x^2+2)$ -- факторкольцо по идеалу $I = (A) = (x^3-x^2+2)$. Рассмотрим гомоморфизм $\varphi$ -- взятие остатка многочлена из $\R[x]$ от деления на $A$. Тогда $\varphi$. Тогда $I$ в точности является $Ker\varphi$. По ТГК: $\R[x]/\{x^3-x^2+2\} \simeq R[x]_A$(остатки от деления на $A$). Степень остатка строго меньше 3 и имеют вид квадратного многочлена с вещественными коэффициентами. Рассмотрим данное фактор кольцо как векторное пространство. Возьмем в нем базис: $x^2, x, 1$. Очевидно, что они линейно независимы и их кол-во максимально. То есть размерность этого векторного пространства 3, следовательно и данной алгебры тоже 3.
+
+
+
+
+\begin{center}
+	\fbox{Задание 4.}
+\end{center}
+
+\noindent \textit{Пусть $F$ -- поле, $R$ -- кольцо и $\varphi: F \rightarrow R$ -- гомоморфизм колец. Докажите, что либо $\varphi(x) = 0$ при всех $x\in F$, либо $Im\varphi \simeq F.$}\\
+\noindent \textbf{Решение.} Из курса лекций: $Ker(\varphi)$ -- несобственный идеал в $F$, так как $F$ -- поле. Заметим, что $Im\varphi \simeq F/Ker\varphi$. Из несобственности $Ker\varphi$:
+\begin{enumerate}
+	\item $Ker\varphi = 0$, тогда $Im\varphi \simeq F/Ker\varphi \simeq F$
+	\item $Ker\varphi = F$, тогда $Im\varphi \simeq F/Ker\varphi \simeq F/А \simeq \{0\}$. Следовательно, в $Im\varphi$ есть только 1 элемент, но $\varphi(0) = 0$ -- всегда. Следовательно, $Im\varphi  = \{0\}\Rightarrow \forall x\in F\;\varphi(x) = 0$.
+\end{enumerate}
+
+
+
+
+
+
+\end{spacing}
+
+\end{document}
