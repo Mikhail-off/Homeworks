@@ -1,1 +1,209 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
 
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\al}{\alpha}
+\newcommand{\GCD}{\text{НОД}}
+
+
+\title{
+	Домашнее задание по алгебре №9.
+}
+\author{Михайлов Никита Маратович, ПМИ-167.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+\begin{center}
+	\fbox{Задание 1.}
+\end{center}
+		
+\noindent \textit{Постройте явно поле $\F_8$ и составьте для него таблицы сложения и умножения.
+}\\
+\noindent \textbf{Решение.} Заметим, что $8=2^3$. Следовательно, нам подойдет поле $\Z_2[x]/(x^3+x^2+1)$, т.к. $x^3+x^2+1$ -- неприводим над $\Z_2$. Элементами поля будут многочлены вида $ax^2+bx+x, a,b,c\in\Z_2$. Построим таблицу сложения:
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
+\hline
++			& 0 & 1 & x & x + 1 & x^2 & x^2 + x & x^2 + 1 &  x^2 + x + 1\\
+\hline
+0			& 0 & 1 & x & x + 1 & x^2 & x^2 + x & x^2 + 1 &  x^2 + x + 1\\
+\hline
+1			& 1 & 0 & x + 1 & x & x^2 + 1 & x^2 + x + 1 & x^2 &  x^2 + x\\
+\hline
+x			& x & x + 1 & 0 & 1 & x^2 + x & x^2 & x^2 + x + 1 &  x^2 + 1\\
+\hline
+x + 1		& x + 1 & x & 1 & 0 & x^2 + x + 1 & x^2 + 1 & x^2 + x &  x^2\\
+\hline
+x^2			& x^2 & x^2 + 1 & x^2 + x & x^2 + x + 1 & 0 & x & 1 & x + 1\\
+\hline
+x^2 + x		& x^2 + x & x^2 + x + 1 & x^2 & x^2 + 1 & x & 0 & x + 1 & 1\\
+\hline
+x^2 + 1		& x^2 + 1 & x^2 & x^2 + x + 1 & x^2 + x & 1 & x + 1 & 0 & x\\
+\hline
+x^2 + x + 1	& x^2 + x + 1 & x^2 + x & x^2 + 1 & x^2 & x + 1 & 1 & x & 0\\
+\hline
+\end{array}
+$$
+
+А теперь умножения:
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\times		& 0 & 1 & x & x + 1 & x^2 & x^2 + x & x^2 + 1 &  x^2 + x + 1\\
+\hline
+0			& 0 & 0 & 0 & 0 & 0 & 0 & 0 &  0\\
+\hline
+1			& 0 & 1 & x & x + 1 & x^2 & x^2 + x & x^2 + 1 &  x^2 + x + 1\\
+\hline
+x			& 0 & x & x^2 & x^2 + x & x^2 + 1 & 1 & x^2 &  x + 1\\
+\hline
+x + 1		& 0 & x + 1 & x^2 + x & x^2 + 1 & x + 1 & x^2 + x + 1 & x &  x^2\\
+\hline
+x^2			& 0 & x^2 & x^2 + 1 & 1 & x^2 + x + 1 & x & x + 1 &  x^2 + x\\
+\hline
+x^2 + x		& 0 & x^2 + x & 1 & x^2+x+1 & x & x + 1 & x^2 &  x^2 + 1\\
+\hline
+x^2 + 1		& 0 & x^2 + 1 & x^2 + x + 1 & x & x + 1 & x^2 & x^2 + x & 1\\
+\hline
+x^2 + x + 1	& 0 & x^2 + x + 1 & x + 1 & x^2 & x^2 + x & x^2 + 1 & 1 & x\\
+\hline
+\end{array}
+$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+\begin{center}
+	\fbox{Задание 2.}
+\end{center}
+		
+\noindent \textit{Реализуем поле $\F_9$ в виде $\Z_3[x]/(x^2 + 1)$. Перечислите в этой реализации все элементы данного поля, являющиеся порождающими циклической группы $\F_9^\times$.
+}\\
+\noindent \textbf{Решение.} Решим в лоб. Построим таблицу умножения:
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\times	& 0 & 1 & 2 & x & x + 1 & x + 2 & 2x & 2x + 1 & 2x + 2\\
+\hline
+0		& 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+\hline
+1		& 0 & 1 & 2 & x & x + 1 & x + 2 & 2x & 2x + 1 & 2x + 2\\
+\hline
+2		& 0 & 2 & 1 & 2x & 2x + 2 & 2x + 1 & x & x + 2 & x + 1\\
+\hline
+x		& 0 & x & 2x & 2 & x + 2 & 2x + 2 & 1 & x + 1 & 2x + 1\\
+\hline
+x + 1	& 0 & x + 1 & 2x + 2 & x + 2 & 2x & 1 & 2x + 1 & 2 & x\\
+\hline
+x + 2	& 0 & x + 2 & 2x + 1 & 2x + 2 & 1 & x & x + 1 & 2x & 2\\
+\hline
+2x		& 0 & 2x & x & 1 & 2x + 1 & 1 + x & 2 & 2x + 2 & x + 2\\
+\hline
+2x + 1	& 0 & 2x + 1 & x + 2 & x + 1 & 2 & 2x & 2x + 2 & x & 1\\
+\hline
+2x + 2	& 0 & 2x + 2 & x + 1 & 2x + 1 & x & 2 & x + 2 & 1 & 2x\\
+\hline
+\end{array}
+$$
+Выпишем элементы, порядок которых равен 8: $x + 1, x + 2, 2x + 1, 2x + 2$ -- эти элементы и будут порождающими.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+\begin{center}
+	\fbox{Задание 3.}
+\end{center}		
+\noindent \textit{Проверьте, что многочлены $x^2 + 1$ и $y^2 - y - 1$ неприводимы над $\Z_3$, и установите явно изоморфизм между полями $\Z_3[x]/(x^2+1)$ и $\Z_3[y]/(y^2-y-1)$.
+}\\
+\noindent \textbf{Решение.} Так как поле конечно и достаточно маленькое. Давайте просто попробуем подобрать корни для $x^2 + 1 = 0$. Числа 0, 1, 2 -- не подходят.
+Заметим, что $y^2 - x - 1 = y^2 + 2x + 2 = (y + 1)^2 + 1$ -- аналогичная ситуация. Корней нет. \\
+Построим таблицу умножения и сделаем там, чтобы элементы одного порядке переходили друг в друга с выполнением линейности(коэфициенты перед $x$ и $y$ одинаковые, чтобы сохранить линейность):
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	\times	& 0 & 1 & 2 & y & y + 1 & y + 2 & 2y & 2y + 1 & 2y + 2\\
+	\hline
+	0		& 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+	\hline
+	1		& 0 & 1 & 2 & y & y + 1 & y + 2 & 2y & 2y + 1 & 2y + 2\\
+	\hline
+	2		& 0 & 2 & 1 & 2y & 2y + 2 & 2y + 1 & y & y + 2 & y + 1\\
+	\hline
+	y		& 0 & y & 2y & y + 1 & 2y + 1 & 1 & 2y+2 & 2 & y + 2\\
+	\hline
+	y + 1	& 0 & y + 1 & 2y + 2 & 2y + 1 & 2 & y & y + 2 & 2y & 1\\
+	\hline
+	y + 2	& 0 & y + 2 & 2y + 1 & 1 & y & 2y+2 & 2 & y + 1 & 2y\\
+	\hline
+	2y		& 0 & 2y & y & 2y+2 & y +2  & 2 & y+1 & 1 & 2y+1\\
+	\hline
+	2y + 1	& 0 & 2y + 1 & y + 2 & 2 & 2y & y+1 & 1 & 2y+2 & y\\
+	\hline
+	2y + 2	& 0 & 2y + 2 & y + 1 & y+2 & 1 & 2y & 2x + 1 & y & 2\\
+	\hline
+\end{array}
+$$
+\begin{enumerate}
+	\item $\varphi(0) = 0$
+	\item $\varphi(1) = 1$
+	\item $\varphi(2) = 2$
+	\item $\varphi(x) = y + 1$
+	\item $\varphi(x + 1) = y + 2$
+	\item $\varphi(x + 2) = y$
+	\item $\varphi(2x) = 2y + 2$
+	\item $\varphi(2x + 1) = 2y$
+	\item $\varphi(2x + 2) = 2y + 1$
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+\begin{center}
+	\fbox{Задание 4.}
+\end{center}
+		
+\noindent \textit{Пусть $p$ -- простое число, $q = p^n$ и $\al\in\F_q$. Докажите, что если многочлен $x^p-x-\al \in \F_q[x]$ имеет корень, то он разлагается на линейные множители.
+}\\
+\noindent \textbf{Решение.} 
+		
+\end{spacing}
+\end{document}
