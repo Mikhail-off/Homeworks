@@ -1,0 +1,199 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+\usepackage{tasks}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\al}{\alpha}
+\newcommand{\GCD}{\text{НОД}}
+
+
+\title{
+	Домашнее задание по мат. структурам №1.
+}
+\author{Михайлов Никита Маратович, ПМИ-167.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+\begin{center}
+	\fbox{Задание 1.}
+\end{center}
+\textbf{Решение.} Заметим, что 1) $1001 = 1023 - 16 - 4 - 2$; 2) $2017 = 2047 - 16 - 8 - 4 - 2$; \\3) $1023 = 1111111111_2$; 
+4) $2047 = 11111111111_2$. Обнулим соответствующие разряды и получим:
+\begin{enumerate}
+	\item $1001 = 1111101001_2$
+	\item $2017 = 11111100001_2$
+\end{enumerate}
+
+
+\begin{center}
+	\fbox{Задание 2.}
+\end{center}
+\textbf{Решение.}\\[10pt]
+\begin{minipage}[c]{100mm}
+	\begin{tabular}{| c | c | c | c | c | c | c |}
+		\hline
+		+ & 0 & 1 & 2 & 3 & 4 & 5 \\
+		\hline
+		0 & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+		\hline
+		1 & 1 & 2 & 3 & 4 & 5 & 10 \\ 
+		\hline
+		2 & 2 & 3 & 4 & 5 & 10 & 11 \\ 
+		\hline
+		3 & 3 & 4 & 5 & 10 & 11 & 12 \\ 
+		\hline
+		4 & 4 & 5 & 10 & 11 & 12 & 13 \\ 
+		\hline
+		5 & 5 & 10 & 11 & 12 & 13 & 14 \\ 
+		\hline
+	\end{tabular}
+\end{minipage}
+\begin{minipage}[c]{100mm}
+	\begin{tabular}{| c | c | c | c | c | c | c |}
+		\hline
+		$\times$ & 0 & 1 & 2 & 3 & 4 & 5 \\
+		\hline
+		0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+		\hline
+		1 & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+		\hline
+		2 & 0 & 2 & 4 & 10 & 12 & 14 \\ 
+		\hline
+		3 & 0 & 3 & 10 & 13 & 20 & 23 \\ 
+		\hline
+		4 & 0 & 4 & 12 & 20 & 24 & 32 \\ 
+		\hline
+		5 & 0 & 5 & 14 & 23 & 32 & 41 \\ 
+		\hline
+	\end{tabular}
+\end{minipage}
+\\
+
+\begin{center}
+	\fbox{Задание 3.}
+\end{center}
+\textbf{Решение.}
+Ассоциативность проверяется матрицей сложения, а именно она должна быть симметрична.\\
+\noindent Переберем все тройки чисел и проверим дистрибутивность:\\
+
+$\begin{array}{l|l|l}
+	 0 * (0 + 0) = 0 = 0 * 0 + 0 * 0   & 
+	 0 * (0 + 1) = 0 = 0 * 0 + 0 * 1   & 
+	 0 * (0 + 2) = 0 = 0 * 0 + 0 * 2   \\ 
+	 0 * (1 + 0) = 0 = 0 * 1 + 0 * 0   & 
+	 0 * (1 + 1) = 0 = 0 * 1 + 0 * 1   & 
+	 0 * (1 + 2) = 0 = 0 * 1 + 0 * 2   \\ 
+	 0 * (2 + 0) = 0 = 0 * 2 + 0 * 0   & 
+	 0 * (2 + 1) = 0 = 0 * 2 + 0 * 1   & 
+	 0 * (2 + 2) = 0 = 0 * 2 + 0 * 2   \\ 
+	 1 * (0 + 0) = 0 = 1 * 0 + 1 * 0   & 
+	 1 * (0 + 1) = 1 = 1 * 0 + 1 * 1   & 
+	 1 * (0 + 2) = 2 = 1 * 0 + 1 * 2   \\ 
+	 1 * (1 + 0) = 1 = 1 * 1 + 1 * 0   & 
+	 1 * (1 + 1) = 2 = 1 * 1 + 1 * 1   & 
+	 1 * (1 + 2) = 0 = 1 * 1 + 1 * 2   \\ 
+	 1 * (2 + 0) = 2 = 1 * 2 + 1 * 0   & 
+	 1 * (2 + 1) = 0 = 1 * 2 + 1 * 1   & 
+	 1 * (2 + 2) = 1 = 1 * 2 + 1 * 2   \\ 
+	 2 * (0 + 0) = 0 = 2 * 0 + 2 * 0   & 
+	 2 * (0 + 1) = 2 = 2 * 0 + 2 * 1   & 
+	 2 * (0 + 2) = 1 = 2 * 0 + 2 * 2   \\ 
+	 2 * (1 + 0) = 2 = 2 * 1 + 2 * 0   & 
+	 2 * (1 + 1) = 1 = 2 * 1 + 2 * 1   & 
+	 2 * (1 + 2) = 0 = 2 * 1 + 2 * 2   \\ 
+	 2 * (2 + 0) = 1 = 2 * 2 + 2 * 0   & 
+	 2 * (2 + 1) = 0 = 2 * 2 + 2 * 1   & 
+	 2 * (2 + 2) = 2 = 2 * 2 + 2 * 2   \\ 
+\end{array} $\\[20pt]
+Проверим вычитание: \\
+$$
+\begin{array}{ccc}
+	 0 - 0 = 0   & 
+	 0 - 1 = 2   & 
+	 0 - 2 = 1   \\ 
+	 1 - 0 = 1   & 
+	 1 - 1 = 0   & 
+	 1 - 2 = 2   \\ 
+	 2 - 0 = 2   & 
+	 2 - 1 = 1   & 
+	 2 - 2 = 0   \\  
+\end{array} $$
+Деление -- умножение на обратный элемент поля:
+\begin{align*}
+1^{-1} = 1 \quad 2^{-1} = 2
+\end{align*}
+
+
+
+\begin{center}
+	\fbox{Задание 4.}
+\end{center}
+\textbf{Решение.} Составим $3^n\equiv x\;(mod\;11)$. Далее буду опускать, что вычисления делаются по модулю 11. Разделим $n$ на $10$ с остатком и получим: $3^{10k + r} \equiv x \Leftrightarrow (3^k)^{10} \cdot 3^r \equiv x$. По малой теореме Ферма имеем $(3^k)^{10} \equiv 1$. Подставляя получим $3^r \equiv x$. Рассмотрим случаи:
+\begin{enumerate}
+	\item $r = 0 \Rightarrow x = 1$
+	\item $r = 1 \Rightarrow x = 3$
+	\item $r = 2 \Rightarrow x = 9$
+	\item $r = 3 \Rightarrow x = 5$
+	\item $r = 4 \Rightarrow x = 4$
+	\item $r = 5 \Rightarrow x = 1$
+	\item $r = 6 \Rightarrow x = 3$
+	\item $r = 7 \Rightarrow x = 9$
+	\item $r = 8 \Rightarrow x = 5$
+	\item $r = 9 \Rightarrow x = 4$
+\end{enumerate} 
+
+
+\begin{center}
+	\fbox{Задание 5.}
+\end{center}
+\textbf{Решение.} Пусть лектор пользовался системой счисления $p$, тогда переведем все числа в десятичную систему и составим уравнение:
+$$
+24_p + 32_p = 100_p \Leftrightarrow 2\cdot p^1 + 4 \cdot p^0 + 3 \cdot p^1 + 2 \cdot p^0 = 1 \cdot p^2 \Leftrightarrow 5p + 6 = p^2 \Rightarrow \left[\begin{array}{l}
+	p = -1\\
+	p = 6
+\end{array}\right.
+$$
+Так как $p$ как минимум 5, то $p = 6$.
+\end{spacing}
+\end{document}
