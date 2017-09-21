@@ -1,0 +1,76 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+\usepackage{tasks}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\al}{\alpha}
+\newcommand{\GCD}{\text{НОД}}
+\newcommand{\D}{\displaystyle}
+
+
+\title{
+	Домашнее задание по теории вероятностей №1.
+}
+\author{Михайлов Никита Маратович, БПМИ-161.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+		
+\section{Задача №1.} 
+Известный польский математик Стефан Банах имел привычку носить в каждом из двух карманов пальто по коробку спичек. Всякий раз, когда ему хотелось закурить трубку, он выбирал наугад один из коробков и доставал из него спичку. Первоначально в каждом коробке было по $n$ спичек. Но когда-то наступает момент, когда выбранный наугад коробок оказывается пустым. Найдите вероятность того, что в этот момент времени во втором коробке осталось ровно $k = 0, . . . , n$ спичек.
+
+
+\subsection{Решение.} Так как в условии написано "выбранный наугад коробок оказывается пустым", то будем считать, что после того, как математик выбрал последнюю спичку, ему нужно еще раз выбрать пустой коробок, и только после этого будем считать вероятность.\\
+Раз во втором коробке осталось $k$ спичек, значит математик успел достать $2n - k$ спичек, а затем выбрал пустой коробок. Следовательно, вариантов закончить <<игру>> ровно $\binom{2n - k}{n - k}$, то есть выбрать $n - k$ мест для спичек из второй коробки. У одного такого варианта вероятность равна $\D \left(\frac{1}{2}\right)^{n - k}\cdot\left(\frac{1}{2}\right)^{n} = \frac{1}{2^{2n-k}}$. Так же в самом конце он должен выбрать пустой коробок с вероятностью $0.5$. Таким образом, нужное событие имеет вероятность $\D \frac{\binom{2n - k}{n - k}}{2^{2n-k+1}}$.\\
+\hrule
+\section{Задача №2.}
+На шахматной доске размера n × n случайно размещают n ладей. Найдите вероятности следующих событий:
+\begin{enumerate}[(a)]
+	\item $A = \{\text{ладьи не бьют друг друга}\}.$
+	\item $B = \{\text{ладьи не бьют друг друга, и на главной диагонали нет никаких фигур}\}.$
+	\item $C = \{\text{ладьи не бьют друг друга, и на главной диагонали находится ровно } t < n \text{ фигур}\}.$
+\end{enumerate}
+\subsection{Решение (a).}
+У первой ладьи вариантов $n^2$, у второй уже $(n-1)^2$, у $i$-й. Итого нужных вариантов $n!^2$ -- для пронумерованных ладей, поэтому еще разделим на $n!$. Таким образом, $n!$ вариантов. Всего мы можем выбрать $\binom{n^2}{n}$. Следовательно, вероятность равна $\D \frac{n!}{\binom{n^2}{n}}$.
+\subsection{Решение (b).}
+
+\subsection{Решение (c).}
+\end{spacing}
+\end{document}
