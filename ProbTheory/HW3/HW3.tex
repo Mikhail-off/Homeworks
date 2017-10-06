@@ -1,0 +1,95 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tabularx}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[english, russian]{babel}
+
+\usepackage{cases}
+\usepackage{tasks}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=15mm,right=15mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\usepackage{setspace}
+
+
+
+
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\x}{\times}
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\al}{\alpha}
+\newcommand{\GCD}{\text{НОД}}
+\newcommand{\D}{\displaystyle}
+
+
+\title{
+	Домашнее задание по теории вероятностей №3.
+}
+\author{Михайлов Никита Маратович, БПМИ-161.
+}
+\date{}
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1}
+
+\section{Задача №1.}
+Множество из $k$ шаров случайно раскладывают по $m$ ящикам. Случайная величина $\xi$ равна количеству пустых ящиков при таком случайном
+размещении. Найдите $E\xi$ и $D\xi$, если (a) шары неразличимы, (b) шары различимы.
+\subsection{Решение (a).} Найдем $P(\xi = i)$. Найдем число всех способов разложить $k$ шаров по $m$ ящиков. Введем переменные $x_i$ -- число шаров в $i$-ом ящике. Тогда искомое число способов равно числу способов решить в целых неотрицательных числах уравнение $x_1 + ... + x_m = k$. Как мы знаем, это задача Муавра, и число решений равно $\binom{k + m - 1}{k}$. Теперь найдем кол-во способов решить это уравнение так, что $i$ переменных равны нулю ($i$ ящиков пусты). Сначала выберем эти ящики: $\binom{m}{i}$. Теперь составим уравнение: $x_1 + ... + x_{m - i} = k$, но каждая переменная хотя бы 1, иначе у нас будет больше, чем $i$ нулевых переменных. Итого нужно найти число способов решить уравнение $y_1 + ... + y_{m - i} = k - (m - i)$. Снова задача Муавра, и ответ на нее есть $\D \binom{k - m + i + m - i - 1}{k - m + i} = \binom{k - 1}{k - m + i} = \binom{k - 1}{m - i - 1}$. Таким образом, $\D P(\xi = i) = \binom{m}{i}\cdot\dfrac{\binom{k - 1}{m - i - 1}}{\binom{k + m - 1}{k}}$. По свойству математического ожидания получим:
+$$
+E[\xi] = \sum\limits_{i \in \xi(\Omega)} i \cdot P(\xi = i) = \sum\limits_{i = 0}^{m} i \cdot \binom{m}{i}\cdot\dfrac{\binom{k - 1}{m - i - 1}}{\binom{k + m - 1}{k}}
+$$
+Найдем дисперсию:
+$$
+D\xi = E[\xi^2] - E^2[\xi] = \sum\limits_{i \in \xi(\Omega)} i^2 \cdot P(\xi = i) - \Big(\sum\limits_{i \in \xi(\Omega)} i \cdot P(\xi = i)\Big)^2 = 
+$$
+$$= \sum\limits_{i = 0}^{m} i^2 \cdot \binom{m}{i}\cdot\dfrac{\binom{k - 1}{m - i - 1}}{\binom{k + m - 1}{k}} - \Big(\sum\limits_{i = 0}^{m} i \cdot \binom{m}{i}\cdot\dfrac{\binom{k - 1}{m - i - 1}}{\binom{k + m - 1}{k}}\Big)^2
+$$
+\subsection{Решение (b).} Пусть мы как-то разложили шары, тогда перемешав шары, сохранив кол-во шаров в каждом из ящиков, мы можем получить $k!$ вариантов, но внутри каждого ящика порядок не важен. Пусть $(x_1, ...,x_m)$ -- некоторый способ разложения шаров(неразличимых). Из него получим $\dfrac{k!}{x_1!\cdot...\cdot x_m!}$ решений(для различимых). Пусть $X = \{x = (x_1,...,x_m)\;|\;x_1+...+x_m=k\}$ -- множество решений для неразличимых шаров. Итак, посчитаем $P(\xi=i)$. Для этого вычислим количество всех исходов: $\D \sum\limits_{x \in X}\dfrac{k!}{x_1!\cdot...\cdot x_m!}$. Теперь выберем $i$ пустых ящиков $\binom{m}{i}$ способами. Как и в аналогичной задаче, в остальных ящиках как минимум 1 шар есть. Составим задачу Муавра и пусть $Y = \{y=(y_1,...,y_{m-i})|y_1+...+y_{m-1} = k - m + i\}$ -- все ее решения для неразличимых шаров. Таким образом, $\binom{m}{i}\sum\limits_{y\in Y}\dfrac{k!}{y_1!\cdot...\cdot y_{m - i}!}$. Итого $\D P(\xi=i) = \dfrac{\binom{m}{i}\sum\limits_{y\in Y}\dfrac{k!}{y_1!\cdot...\cdot y_{m - i}!}}{\sum\limits_{x \in X}\dfrac{k!}{x_1!\cdot...\cdot x_m!}}$, а математическое ожидание величины $\xi$ соответственно:
+$$
+E[\xi] = \sum\limits_{i = 0}^{m} i\cdot \dfrac{\binom{m}{i}\sum\limits_{y\in Y}\dfrac{k!}{y_1!\cdot...\cdot y_{m - i}!}}{\sum\limits_{x \in X}\dfrac{k!}{x_1!\cdot...\cdot x_m!}} = \dfrac{\sum\limits_{i = 0}^{m} i\cdot \binom{m}{i}\sum\limits_{y\in Y}\dfrac{k!}{y_1!\cdot...\cdot y_{m - i}!}}{\sum\limits_{x \in X}\dfrac{k!}{x_1!\cdot...\cdot x_m!}} 
+$$
+Посчитаем дисперсию:
+$$
+D\xi = E[\xi^2] - E^2[\xi] = \sum\limits_{i \in \xi(\Omega)} i^2 \cdot P(\xi = i) - \Big(\sum\limits_{i \in \xi(\Omega)} i \cdot P(\xi = i)\Big)^2 = 
+$$
+$$
+=\dfrac{\sum\limits_{i = 0}^{m} i^2\cdot \binom{m}{i}\sum\limits_{y\in Y}\dfrac{k!}{y_1!\cdot...\cdot y_{m - i}!}}{\sum\limits_{x \in X}\dfrac{k!}{x_1!\cdot...\cdot x_m!}} - \Bigg(\dfrac{\sum\limits_{i = 0}^{m} i\cdot \binom{m}{i}\sum\limits_{y\in Y}\dfrac{k!}{y_1!\cdot...\cdot y_{m - i}!}}{\sum\limits_{x \in X}\dfrac{k!}{x_1!\cdot...\cdot x_m!}}\Bigg)^2
+$$
+\section{Задача №2.}
+В ящик положили $n$ различимых шаров, среди которых есть $k$ белых,
+а остальные — черные. Шары вынимаются случайно и последовательно
+без возвращения. Пусть последний белый шар вынимается на шаге $\xi$.
+Вычислите а) $E\xi$, б) $D\xi$.
+\subsection{Решение а)}
+Так как в условии написано, что шары различимы, то будем считать, что они все пронумерованы и имеют цвет. Найдем вероятность $P(\xi = i)$. Понятно, что всех вариантов у нас $n!$. Раз последний белый шар вынут на $i$-ом шаге, то нужно выбрать из первых $i$ мест $k$ мест для белых шаров, а остальные $n - k$ мест распределить среди черных: $\D A_{i}^k (n-k)!$. Таким образом $\D P(\xi = i) = \dfrac{A_i^k(n-k)!}{n!}= \dfrac{A_i^k}{A_n^k} = \dfrac{\binom{i}{k}}{\binom{n}{k}}$ (как видим, нет разницы пронумерованы ли шары), а математическое ожидание соответственно
+$$
+E[\xi] = \sum\limits_{i = k}^n i \cdot \dfrac{\binom{i}{k}}{\binom{n}{k}} = \dfrac{\sum\limits_{i = k}^n i \cdot \binom{i}{k}}{\binom{n}{k}}
+$$
+\subsection{Решение б)} По формуле связи дисперсии с математическим ожиданием получим:
+$$
+D\xi = E[\xi^2] - E^2[\xi] = \dfrac{\sum\limits_{i = k}^n i^2 \cdot \binom{i}{k}}{\binom{n}{k}} - \dfrac{(\sum\limits_{i = k}^n i \cdot \binom{i}{k})^2}{\binom{n}{k}^2} 
+$$
+\end{spacing}
+\end{document}
